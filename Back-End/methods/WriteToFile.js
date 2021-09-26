@@ -1,9 +1,15 @@
 const fs = require('fs');
 
-const writeToJSON = (userResponses = {}) => {
+const writeToJSON = (req,res) => {
      
     try {
         let fileData,data;
+
+        const userResponses = {
+            diagnosisFeedback: req.body.diagnosisFeedback,
+            recommendation: req.body.recommendation,
+            generalFeedback: req.body.generalFeedback
+        }
 
         if(fs.existsSync('./userResponses.json')) {
             fileData = fs.readFileSync('./userResponses.json',
@@ -28,7 +34,9 @@ const writeToJSON = (userResponses = {}) => {
         console.log(err)
         result = false;
     }
-    
+    if(res) {
+        res.sendStatus(200);
+    }
     return result
 }
 
