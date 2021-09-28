@@ -5,7 +5,7 @@ import diagnosisReducer from "./diagnosisReducer";
 import recommendationReducer from "./recommendationReducer";
 
 const reducers = combineReducers({
-    generalfeedback: feedbackReducer,
+    generalFeedback: feedbackReducer,
     diagnosisFeedback: diagnosisReducer,
     recommendation: recommendationReducer
 })

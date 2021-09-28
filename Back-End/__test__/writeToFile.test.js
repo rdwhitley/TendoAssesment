@@ -1,12 +1,12 @@
 const writeToFile = require('../methods/WriteToFile');
 
 test('writes user repsonse data to JSON file', () => {
-    let user = {
+    let req = {
         body: {
-          diagnosisFeedback: "",
+          diagnosisFeedback: "The information given to me by the Dr was very informal.",
           reccomendation: 5,
-          generalFeedback: ""
+          generalFeedback: "The overall process went very smooth and I look forward to coming back."
         }
     };
-    expect(writeToFile(user)).toBe(true);
+    expect(writeToFile(req)).toBe(true);
 })

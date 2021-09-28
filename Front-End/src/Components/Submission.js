@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 const Submission = () => {
         const history = useHistory();
         const state = useSelector(state => state)
-        console.log(state)
         const submitPatientInfo = () => {
             const requestOptions = {
                 method: "POST",
@@ -22,6 +21,12 @@ const Submission = () => {
 
         return (
             <div>
+                <h1>Review your provided information below </h1>
+                <ul>
+                    <li>diagnosis feedback: {state.diagnosisFeedback}</li>
+                    <li>general feedback: {state.generalFeedback}</li>
+                    <li>recommendation: {state.recommendation}</li>
+                </ul>
                <button onClick={() => submitPatientInfo()}>Submit Patient Info</button>
             </div> 
 
