@@ -6,6 +6,6 @@ const app = express();
 app.use(express.json())
 app.post('/recordResponse', writeToFile)
 
-app.listen(3000, function () {
+app.listen(3001, function () {
     console.log('app listening on port 3000.');
 });
