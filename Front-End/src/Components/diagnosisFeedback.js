@@ -4,15 +4,16 @@ import { actionCreators } from "../store/index";
 import {useHistory} from 'react-router-dom';
 import { useDispatch } from "react-redux";
 import getDiagnosis from "../methods/getDiagnosis";
+import getDrName from "../methods/getDrName";
 
 const DiagnosisFeedback = () => {
         const dispatch = useDispatch()
         const {giveDiagnosis} = bindActionCreators(actionCreators,dispatch);
         const history = useHistory();
         const [feedbackValue, setFeedback] = useState(false);
-        console.log(getDiagnosis())
         return (
             <div>
+                <label>Thank you. You were diagnosed with {getDiagnosis()}. Did Dr. {getDrName()} explain how to manage this diagnosis in a way you could understand?</label>
                 <select id='hadFeedback' onChange={() => {
                     const value = document.querySelector('#hadFeedback');
                     setFeedback(!feedbackValue)
@@ -30,11 +31,16 @@ const DiagnosisFeedback = () => {
                     <br />
                     <button onClick={() => {
                         const feedback = document.querySelector('#feedback').value;
-                        console.log(feedback)
                     }} > Submit </button>
                 
                   </div>
-                : null
+                :  
+                    <div>
+                    <button onClick={() => {
+                        const feedback = document.querySelector('#feedback').value;
+                    }} > Submit 
+                    </button>
+                    </div>
                 }
             </div>
         )
