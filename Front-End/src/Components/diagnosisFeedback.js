@@ -21,7 +21,7 @@ const DiagnosisFeedback = () => {
                     <option value='1'>Yes</option>
                     <option value='0'>No</option>
                 </select>
-                {feedbackValue && document.querySelector('#hadFeedback') !== null
+                {!feedbackValue && document.querySelector('#hadFeedback') !== null
                 ? 
                   <div>
                     <label>Please Enter Any Additional Feedback Below</label>
@@ -30,6 +30,8 @@ const DiagnosisFeedback = () => {
                     <br />
                     <button onClick={() => {
                         const feedback = document.querySelector('#feedback').value;
+                        giveDiagnosis(feedback)
+                        history.push('/generalFeedback')
                     }} > Submit </button>
                 
                   </div>
@@ -37,6 +39,8 @@ const DiagnosisFeedback = () => {
                  <div>
                     <button onClick={() => {
                         const feedback = document.querySelector('#feedback').value;
+                        giveDiagnosis(feedback)
+                        history.push('/generalFeedback')
                     }} > Submit </button>
             
                  </div>

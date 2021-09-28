@@ -27,6 +27,7 @@ const Recommendation = () => {
             <button type='submit' onClick={() => {
                 let value = document.querySelector('#recommendation').value;
                 giveRecommendation(value)
+                history.push('/diagnosisFeedback')
             }}>Submit</button>
         </div>
     )

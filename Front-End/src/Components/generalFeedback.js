@@ -17,6 +17,8 @@ const GeneralFeedBack = () => {
                <br />
                <button onClick={() => {
                    let feedback = document.querySelector('#feedback').value;
+                   giveFeedback(feedback)
+                   history.push('/submission')
                }}>Submit</button>
             </div> 
 
