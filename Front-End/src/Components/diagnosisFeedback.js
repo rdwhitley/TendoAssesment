@@ -15,17 +15,16 @@ const DiagnosisFeedback = () => {
             <div>
                 <label>Thank you. You were diagnosed with {getDiagnosis()}. Did Dr. {getDrName()} explain how to manage this diagnosis in a way you could understand?</label>
                 <select id='hadFeedback' onChange={() => {
-                    const value = document.querySelector('#hadFeedback');
                     setFeedback(!feedbackValue)
                 }}>
-                    <option disabled selected value> -- select an option -- </option>
-                    <option>Yes</option>
-                    <option>No</option>
+                    <option disabled selected value='none'> -- select an option -- </option>
+                    <option value='1'>Yes</option>
+                    <option value='0'>No</option>
                 </select>
-                {feedbackValue 
+                {feedbackValue && document.querySelector('#hadFeedback') !== null
                 ? 
                   <div>
-                    <label>Please Enter Feedback Below</label>
+                    <label>Please Enter Any Additional Feedback Below</label>
                     <br/>
                     <textarea id="feedback" rows="4" cols="50" />
                     <br />
@@ -34,13 +33,13 @@ const DiagnosisFeedback = () => {
                     }} > Submit </button>
                 
                   </div>
-                :  
-                    <div>
+                : 
+                 <div>
                     <button onClick={() => {
                         const feedback = document.querySelector('#feedback').value;
-                    }} > Submit 
-                    </button>
-                    </div>
+                    }} > Submit </button>
+            
+                 </div>
                 }
             </div>
         )
