@@ -3,14 +3,14 @@ import { bindActionCreators } from 'redux';
 import { actionCreators } from "../store/index";
 import {useHistory} from 'react-router-dom';
 import { useDispatch } from "react-redux";
-
+import getDiagnosis from "../methods/getDiagnosis";
 
 const DiagnosisFeedback = () => {
         const dispatch = useDispatch()
         const {giveDiagnosis} = bindActionCreators(actionCreators,dispatch);
         const history = useHistory();
         const [feedbackValue, setFeedback] = useState(false);
-
+        console.log(getDiagnosis())
         return (
             <div>
                 <select id='hadFeedback' onChange={() => {
