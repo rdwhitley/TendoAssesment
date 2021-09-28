@@ -23,9 +23,9 @@ const Submission = () => {
             <div>
                 <h1>Review your provided information below </h1>
                 <ul>
-                    <li>diagnosis feedback: {state.diagnosisFeedback}</li>
-                    <li>general feedback: {state.generalFeedback}</li>
-                    <li>recommendation: {state.recommendation}</li>
+                    <li>diagnosis feedback: {state.diagnosisFeedback} <br /> <span> Change Diagnosis Feedback </span></li>
+                    <li>general feedback: {state.generalFeedback} <br /> <span> Change General Feedbackk </span></li>
+                    <li>recommendation: {state.recommendation} <br /><span> Change Recommendation </span></li>
                 </ul>
                <button onClick={() => submitPatientInfo()}>Submit Patient Info</button>
             </div> 

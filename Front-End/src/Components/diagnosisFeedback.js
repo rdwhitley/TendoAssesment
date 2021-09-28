@@ -15,19 +15,22 @@ const DiagnosisFeedback = () => {
             <div>
                 <label>Thank you. You were diagnosed with {getDiagnosis()}. Did Dr. {getDrName()} explain how to manage this diagnosis in a way you could understand?</label>
                 <select id='hadFeedback' onChange={() => {
-                    setFeedback(!feedbackValue)
+                    const value = document.querySelector('#hadFeedback').value;
+                    if(value == '1') {
+                        setFeedback(true)
+                    } else {
+                        setFeedback(false)
+                    }
                     console.log(feedbackValue)
                 }}>
                     <option disabled selected value='none'> -- select an option -- </option>
-                    <option value='1'>Yes</option>
-                    <option value='0'>No</option>
+                    <option value='0'>Yes</option>
+                    <option value='1'>No</option>
                 </select>
-                {!feedbackValue || document.querySelector('#hadFeedback') === 'none'
+                {feedbackValue === false || document.querySelector('#hadFeedback') === 'none'
                 ? 
                   <div>
                     <button onClick={() => {
-                        const feedback = document.querySelector('#feedback').value;
-                        giveDiagnosis(feedback)
                         history.push('/generalFeedback')
                     }} > Submit </button>
             
