@@ -47,7 +47,7 @@ const DiagnosisFeedback = (props) => {
                     <button onClick={() => {
                         const feedback = document.querySelector('#feedback').value;
                         giveDiagnosis(feedback)
-                        history.push('/generalFeedback')
+                        readyToSubmit ? history.push('/submission') : history.push('/generalFeedback')
                     }} > Submit </button>
                  </div>
                  

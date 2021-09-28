@@ -22,7 +22,7 @@ const GeneralFeedBack = (props) => {
                <button onClick={() => {
                    let feedback = document.querySelector('#feedback').value;
                    giveFeedback(feedback)
-                   history.push('/submission')
+                   readyToSubmit ? history.push('/submission') : history.push('/generalFeedback')
                }}>Submit</button>
             </div> 
 

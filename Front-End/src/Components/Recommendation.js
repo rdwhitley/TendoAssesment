@@ -31,7 +31,7 @@ const Recommendation = (props) => {
             <button type='submit' onClick={() => {
                 let value = document.querySelector('#recommendation').value;
                 giveRecommendation(value)
-                history.push('/diagnosisFeedback')
+                readyToSubmit ? history.push('/submission') : history.push('/generalFeedback')
             }}>Submit</button>
         </div>
     )
