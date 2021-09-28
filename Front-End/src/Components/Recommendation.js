@@ -1,7 +1,7 @@
 import getPatientName from '../methods/patientName';
+import getDrName from '../methods/getDrName';
 const Recommendation = () => {
-    const patientName = getPatientName();
-    console.log(patientName)
+    
     return (
         <div>
             Here is my recommendation
