@@ -15,14 +15,14 @@ const Submission = () => {
                     recommendation: state.recommendation
                 })
               };
-              fetch("localhost:3001/recordResponse", requestOptions)
+              fetch("http://localhost:3001/recordResponse", requestOptions)
                 .then(response => response.json())
                 .then(res => console.log(res));
         };
 
         return (
             <div>
-               submission
+               <button onClick={() => submitPatientInfo()}>Submit Patient Info</button>
             </div> 
 
          )

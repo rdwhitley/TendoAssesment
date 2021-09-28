@@ -16,15 +16,24 @@ const DiagnosisFeedback = () => {
                 <label>Thank you. You were diagnosed with {getDiagnosis()}. Did Dr. {getDrName()} explain how to manage this diagnosis in a way you could understand?</label>
                 <select id='hadFeedback' onChange={() => {
                     setFeedback(!feedbackValue)
+                    console.log(feedbackValue)
                 }}>
                     <option disabled selected value='none'> -- select an option -- </option>
                     <option value='1'>Yes</option>
                     <option value='0'>No</option>
                 </select>
-                {!feedbackValue && document.querySelector('#hadFeedback') !== null
+                {!feedbackValue || document.querySelector('#hadFeedback') === 'none'
                 ? 
                   <div>
-                    <label>Please Enter Any Additional Feedback Below</label>
+                    <button onClick={() => {
+                        const feedback = document.querySelector('#feedback').value;
+                        giveDiagnosis(feedback)
+                        history.push('/generalFeedback')
+                    }} > Submit </button>
+            
+                  </div>
+                : <div> 
+                     <label>Please Enter Any Additional Feedback Below</label>
                     <br/>
                     <textarea id="feedback" rows="4" cols="50" />
                     <br />
@@ -33,17 +42,8 @@ const DiagnosisFeedback = () => {
                         giveDiagnosis(feedback)
                         history.push('/generalFeedback')
                     }} > Submit </button>
-                
-                  </div>
-                : 
-                 <div>
-                    <button onClick={() => {
-                        const feedback = document.querySelector('#feedback').value;
-                        giveDiagnosis(feedback)
-                        history.push('/generalFeedback')
-                    }} > Submit </button>
-            
                  </div>
+                 
                 }
             </div>
         )
