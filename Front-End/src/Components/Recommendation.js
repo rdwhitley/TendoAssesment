@@ -4,7 +4,11 @@ import { bindActionCreators } from 'redux';
 import { actionCreators } from "../store/index";
 import {useHistory} from 'react-router-dom';
 import { useDispatch } from "react-redux"; 
-const Recommendation = () => {
+const Recommendation = (props) => {
+        let readyToSubmit;
+        if(props.location.state) {
+            readyToSubmit = true;
+        }
         const dispatch = useDispatch()
         const {giveRecommendation} = bindActionCreators(actionCreators,dispatch);
         let history = useHistory();

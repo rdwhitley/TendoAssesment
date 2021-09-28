@@ -5,7 +5,11 @@ import {useHistory} from 'react-router-dom';
 import { useDispatch } from "react-redux";
 import getDiagnosis from "../methods/getDiagnosis";
 
-const GeneralFeedBack = () => {
+const GeneralFeedBack = (props) => {
+        let readyToSubmit;
+        if(props.location.state) {
+            readyToSubmit = true;
+        }
         const dispatch = useDispatch()
         const {giveFeedback} = bindActionCreators(actionCreators,dispatch);
         const history = useHistory();

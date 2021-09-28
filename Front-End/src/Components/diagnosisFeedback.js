@@ -6,7 +6,11 @@ import { useDispatch } from "react-redux";
 import getDiagnosis from "../methods/getDiagnosis";
 import getDrName from "../methods/getDrName";
 
-const DiagnosisFeedback = () => {
+const DiagnosisFeedback = (props) => {
+        let readyToSubmit;
+        if(props.location.state) {
+            readyToSubmit = true;
+        }
         const dispatch = useDispatch()
         const {giveDiagnosis} = bindActionCreators(actionCreators,dispatch);
         const history = useHistory();
