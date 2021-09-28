@@ -9,6 +9,7 @@ import Recommendation from './Components/Recommendation';
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
+      <Route exact path='/home' component={App} />
       <Route exact path="/recommend" component={Recommendation}/> 
     </BrowserRouter>
   </Provider>,
