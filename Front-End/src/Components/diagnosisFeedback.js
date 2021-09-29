@@ -35,7 +35,8 @@ const DiagnosisFeedback = (props) => {
                 ? 
                   <div>
                     <button onClick={() => {
-                        history.push('/generalFeedback')
+                        giveDiagnosis("The diagnosis was explained very thuroughly.")
+                        readyToSubmit ? history.push('/submission') : history.push('/generalFeedback')
                     }} > Submit </button>
             
                   </div>

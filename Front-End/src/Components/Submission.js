@@ -14,7 +14,7 @@ const Submission = () => {
                     recommendation: state.recommendation
                 })
               };
-              fetch("http://localhost:3001/recordResponse", requestOptions)
+              fetch("http://54.152.165.85:3001/recordResponse", requestOptions)
                 .then(response => response.json())
                 .then(res => console.log(res));
         };
