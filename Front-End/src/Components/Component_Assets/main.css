@@ -1,4 +1,10 @@
+body {
+    background-color: #BCCCDC;
+}
+
 .grid {
+   background-color: #F0F4F8;
+   color:#102A43;
    display: grid;
    margin: 0 auto;
    height: 60vh;
