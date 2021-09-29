@@ -4,6 +4,7 @@ import "./Component_Assets/main.css";
 const Submission = () => {
         const history = useHistory();
         const state = useSelector(state => state)
+
         const submitPatientInfo = () => {
             const requestOptions = {
                 method: "POST",
@@ -26,27 +27,29 @@ const Submission = () => {
                 .catch(err => console.log(err))
         };
 
+        const changeRoute = (path) => {
+            return history.push({
+                pathname: path,
+                state: {readyToSubmit: true}
+            })
+        }
+
         return (
             <div>
                 <h1 style={{textAlign: "center"}}>Review your provided information below </h1>
                 <section class='grid'>
                     <ul style={{listStyleType: "none"}}>
-                        <li><span className="secondary-important">Diagnosis feedback:</span> {state.diagnosisFeedback} <br /> <button className="secondary-btn" onClick={() => {history.push({
-                            pathname: "/diagnosisFeedback",
-                            state: {readyToSubmit: true}
-                        })}}> Change Diagnosis Feedback </button>
+                        <li><span className="secondary-important">Diagnosis feedback:</span> {state.diagnosisFeedback} 
+                            <br /> 
+                            <button className="secondary-btn" onClick={() => changeRoute('/diagnosisFeedback')}> Change Diagnosis Feedback </button>
                         </li>
-                        <li><span className="secondary-important">General feedback:</span> {state.generalFeedback} <br /> 
-                        <button className="secondary-btn" onClick={() => {history.push({
-                            pathname: "/generalFeedback",
-                            state: {readyToSubmit: true}
-                        })}}> Change General Feedback </button>
+                        <li><span className="secondary-important">General feedback:</span> {state.generalFeedback} 
+                            <br /> 
+                            <button className="secondary-btn" onClick={() => changeRoute('generalFeedback')}> Change General Feedback </button>
                         </li>
-                        <li><span className="secondary-important">Your Recommendation: </span> {state.recommendation} <br /><button className="secondary-btn" onClick={() => {history.push({
-                            pathname: "/recommend",
-                            state: {readyToSubmit: true}
-                        })}}> Change Recommendation 
-                        </button>
+                        <li><span className="secondary-important">Your Recommendation: </span> {state.recommendation} 
+                            <br />
+                            <button className="secondary-btn" onClick={() => changeRoute('/recommend')}> Change Recommendation </button>
                         </li>
                     </ul>
                 <button id='patient-submit'className="btn" onClick={() => submitPatientInfo()}>Submit Patient Info</button>
