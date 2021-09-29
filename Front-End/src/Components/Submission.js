@@ -16,7 +16,13 @@ const Submission = () => {
               };
               fetch("http://54.152.165.85:3001/recordResponse", requestOptions)
                 .then(response => response.json())
-                .then(res => console.log(res))
+                .then(res => {
+                    let submit = document.querySelector('#patient-submit');
+                    submit.innerText = "Submitted";
+                    setTimeout(() => {
+                        history.push('/')
+                    }, 2000);
+                })
                 .catch(err => console.log(err))
         };
 
@@ -43,7 +49,7 @@ const Submission = () => {
                         </button>
                         </li>
                     </ul>
-                <button className="btn" onClick={() => submitPatientInfo()}>Submit Patient Info</button>
+                <button id='patient-submit'className="btn" onClick={() => submitPatientInfo()}>Submit Patient Info</button>
                 </section> 
             </div>
 
