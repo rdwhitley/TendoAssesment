@@ -6,7 +6,11 @@ import { useDispatch } from "react-redux";
 import getDiagnosis from "../methods/getDiagnosis";
 import getDrName from "../methods/getDrName";
 
-const DiagnosisFeedback = () => {
+const DiagnosisFeedback = (props) => {
+        let readyToSubmit;
+        if(props.location.state) {
+            readyToSubmit = true;
+        }
         const dispatch = useDispatch()
         const {giveDiagnosis} = bindActionCreators(actionCreators,dispatch);
         const history = useHistory();
@@ -15,31 +19,38 @@ const DiagnosisFeedback = () => {
             <div>
                 <label>Thank you. You were diagnosed with {getDiagnosis()}. Did Dr. {getDrName()} explain how to manage this diagnosis in a way you could understand?</label>
                 <select id='hadFeedback' onChange={() => {
-                    setFeedback(!feedbackValue)
+                    const value = document.querySelector('#hadFeedback').value;
+                    if(value == '1') {
+                        setFeedback(true)
+                    } else {
+                        setFeedback(false)
+                    }
+                    console.log(feedbackValue)
                 }}>
                     <option disabled selected value='none'> -- select an option -- </option>
-                    <option value='1'>Yes</option>
-                    <option value='0'>No</option>
+                    <option value='0'>Yes</option>
+                    <option value='1'>No</option>
                 </select>
-                {feedbackValue && document.querySelector('#hadFeedback') !== null
+                {feedbackValue === false || document.querySelector('#hadFeedback') === 'none'
                 ? 
                   <div>
-                    <label>Please Enter Any Additional Feedback Below</label>
+                    <button onClick={() => {
+                        history.push('/generalFeedback')
+                    }} > Submit </button>
+            
+                  </div>
+                : <div> 
+                     <label>Please Enter Any Additional Feedback Below</label>
                     <br/>
                     <textarea id="feedback" rows="4" cols="50" />
                     <br />
                     <button onClick={() => {
                         const feedback = document.querySelector('#feedback').value;
+                        giveDiagnosis(feedback)
+                        readyToSubmit ? history.push('/submission') : history.push('/generalFeedback')
                     }} > Submit </button>
-                
-                  </div>
-                : 
-                 <div>
-                    <button onClick={() => {
-                        const feedback = document.querySelector('#feedback').value;
-                    }} > Submit </button>
-            
                  </div>
+                 
                 }
             </div>
         )

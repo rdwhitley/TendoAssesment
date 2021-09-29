@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 const writeToJSON = (req,res) => {
-     
+        console.log(req.body);
     try {
         let fileData,data;
 
@@ -35,7 +35,7 @@ const writeToJSON = (req,res) => {
         result = false;
     }
     if(res) {
-        res.sendStatus(200);
+        res.json('Patient Response Recorded');
     }
     return result
 }
