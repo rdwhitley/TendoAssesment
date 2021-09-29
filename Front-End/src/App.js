@@ -1,8 +1,12 @@
+import './Components/Component_Assets/main.css';
+import {useHistory} from 'react-router-dom';
 function App() {
+  const history = useHistory();
   return (
-    <div className="App">
-      <h1>Hello World</h1>
-    </div>
+    <section className="grid">
+      <aside>Welcome to Patient Response Recorder</aside>
+      <button class='btn' onClick={() => history.push('/recommend')}>Start</button>
+    </section>
   );
 }
 

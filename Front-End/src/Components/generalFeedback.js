@@ -13,13 +13,13 @@ const GeneralFeedBack = () => {
         return (
             <section class='grid'>
                <div>
-                <label>We appreciate the feedback, one last question: how do you feel about being diagnosed with {getDiagnosis()}?</label>
+                <label>We appreciate the feedback, one last question: how do you feel about being diagnosed with <span className="important">{getDiagnosis()}</span>?</label>
                </div>
 
                <div>
                 <textarea id="feedback" rows="4" cols="50" />
                 <br />
-                <button onClick={() => {
+                <button className="btn" onClick={() => {
                     let feedback = document.querySelector('#feedback').value;
                     giveFeedback(feedback)
                     history.push('/submission')

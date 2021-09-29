@@ -15,7 +15,7 @@ const Recommendation = (props) => {
         let history = useHistory();
         return (
         <section class='grid'>
-            <label>Hi {getPatientName()}, on a scale of 1-10, would you recommend Dr. {getDrName()} to a friend or family member? 1 = Would not recommend, 10 = Would strongly recommend</label>
+            <label>Hi <span className="important">{getPatientName()} </span>, on a scale of 1-10, would you recommend <span className="important">Dr. {getDrName()}</span> to a friend or family member? 1 = Would not recommend, 10 = Would strongly recommend</label>
             <div>
                 <select id="recommendation">
                     <option value="1">1</option>
@@ -29,7 +29,8 @@ const Recommendation = (props) => {
                     <option value="9">9</option>
                     <option value="10">10</option>
                 </select>
-            <button type='submit' onClick={() => {
+            <br />
+            <button className="btn"type='submit' onClick={() => {
                 let value = document.querySelector('#recommendation').value;
                 giveRecommendation(value)
                 readyToSubmit ? history.push('/submission') : history.push('/diagnosisFeedback')
