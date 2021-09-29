@@ -5,7 +5,7 @@ import {useHistory} from 'react-router-dom';
 import { useDispatch } from "react-redux";
 import getDiagnosis from "../methods/getDiagnosis";
 import getDrName from "../methods/getDrName";
-
+import './Component_Assets/main.css';
 const DiagnosisFeedback = (props) => {
         let readyToSubmit;
         if(props.location.state) {
@@ -16,8 +16,12 @@ const DiagnosisFeedback = (props) => {
         const history = useHistory();
         const [feedbackValue, setFeedback] = useState(false);
         return (
-            <div>
-                <label>Thank you. You were diagnosed with {getDiagnosis()}. Did Dr. {getDrName()} explain how to manage this diagnosis in a way you could understand?</label>
+            <section class='grid'>
+                <div>
+                    <label>Thank you. You were diagnosed with {getDiagnosis()}. Did Dr. {getDrName()} explain how to manage this diagnosis in a way you could understand?</label>
+                </div>
+
+                <div>
                 <select id='hadFeedback' onChange={() => {
                     const value = document.querySelector('#hadFeedback').value;
                     if(value == '1') {
@@ -51,9 +55,9 @@ const DiagnosisFeedback = (props) => {
                         readyToSubmit ? history.push('/submission') : history.push('/generalFeedback')
                     }} > Submit </button>
                  </div>
-                 
                 }
-            </div>
+                 </div>
+            </section>
         )
 }
 

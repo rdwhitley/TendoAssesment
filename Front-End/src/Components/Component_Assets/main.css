@@ -1,0 +1,13 @@
+.grid {
+   display: grid;
+   margin: 0 auto;
+   height: 60vh;
+   grid-template-columns: 1fr 1fr;
+   align-items: center;
+   justify-items: center;
+   width: 50vw;
+   border-radius: 20px;
+   cursor: pointer;
+   box-shadow: 0 0 20px 8px #d0d0d0;
+   padding: 50px;
+}
