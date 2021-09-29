@@ -11,7 +11,7 @@ import Submission from './Components/Submission';
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
-      <Route exact path='/home' component={App} />
+      <Route exact path='/' component={App} />
       <Route exact path="/recommend" component={Recommendation}/> 
       <Route exact path="/diagnosisFeedback" component={DiagnosisFeedback} />
       <Route exact path="/generalFeedback" component={GeneralFeedBack} />
